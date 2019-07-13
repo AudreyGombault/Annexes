@@ -69,10 +69,6 @@ if(inclure_colonne_Ntotal_par_classe) {
 #write_tsv(matrice_confusion_effectifs %>% rownames_to_column(var = "Référence"), path = fichier_resultats_effectifs)
 write_tsv(matrice_confusion_frequences_formatte %>% rownames_to_column(var = "Référence"), path = fichier_resultats_frequences)
 
-
-
-
-#df <- data.frame(matrix(ncol = 2, nrow = 1))
 classification <- c("JRIP_phonetique", "JRIP_MFCC", "JRIP_combinaison")
 taux = c(64.25,84.25 , 84.5)
 df <- data.frame(classification, taux)
@@ -97,6 +93,7 @@ box(bty="l")
 dev.off()
 
 hauteurCm = 6
+couleurs = c("#999999","#666666", "#333333", "#999999","#666666", "#333333", "#999999","#666666", "#333333")
 
 pdf("WEKA/JRIP/comparaison_desc.pdf", height = hauteurCm)
 b=barplot(taux, xpd=FALSE,ylim = c(50,90), beside = TRUE, col = couleurs, ylab="Score de classification de l'age (%)")
@@ -119,11 +116,6 @@ b=barplot(taux2, xpd=FALSE,ylim = c(70,100), beside = TRUE, col = couleurs, ylab
 axis(side=1, at=b, labels = classification2)
 box(bty="l")
 dev.off()
-
-couleurs = c("#999999","#666666", "#333333", "#999999","#666666", "#333333", "#999999","#666666", "#333333")
-
-
-
 
 classification3 <- c("SMO_phon_T", "SMO_phon_F", "SMO_phon_H", "SMO_MFCC_T", "SMO_MFCC_F","SMO_MFCC_H", "SMO_tout_T", "SMO_tout_F", "SMO_tout_H")
 taux3 = c(59.7, 63.45, 63, 87, 92, 98, 87, 94, 98)
