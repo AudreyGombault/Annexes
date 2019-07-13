@@ -1,0 +1,38 @@
+Parameter	Value	Type	Description
+secondary_tier	0	Num	Integer. Index of the other interval tier from which labels should be extracted (0 = none, -1 = all interval tiers)
+extract_F0	0	Num	0 or 1. Set to 1 to extract F0
+extract_intensity	1	Num	0 or 1. Set to 1 to extract intensity, or to 0
+extract_formants	0	Num	0 or 1. Set to 1 to extract formants, or to 0
+extract_CoG	0	Num	0 or 1. Set to 1 to extract spectral center of gravity (CoG), or to 0
+extract_HNR	0	Num	0 or 1. Set to 1 to extract harmonics-to-noise ratio (HNR), or to 0
+extract_ZCR	0	Num	0 or 1. Set to 1 to extract zero-crossing rate (ZCR), or to 0
+extract_left_and_right_context	0	Num	0 or 1. Set to 1 to extract left and right context (in the reference tier), or to 0
+get_median	0	Num	0 or 1. Set to 1 to extract the median for each acoustic parameter x target interval
+get_standard_deviation	0	Num	0 or 1. Set to 1 to extract the standard deviation for each acoustic parameter x target interval
+get_min_max_with_time	0	Num	0 or 1. Set to 1 to extract min and max values and corresponding relative times for each acoustic parameter x target interval
+offset_for_acoustic_parameters_extraction_milliseconds	100	Num	Positive number (milliseconds). Duration of signal taken into account for analyzes around target intervals.
+target_channel	1	Num	1 or 2. Channel to be used in analyses when stereo sounds are used as input.
+timeStepF0detection	0	Num	Numeric (seconds). Time step used in F0 detection. Set to 0 for automatic time step.
+minF0	75	Num	Numeric (Hertz). Minimum F0 value used in function "To Pitch" for F0 extraction. Adjust according to speaker(s) specificities to minimize octave jumps. This parameter is also used for the extraction of intensity (function "To Intensity") and HNR (function "To Harmonicity (cc)").
+maxF0	600	Num	Numeric (Hertz). Maximum F0 value used in function "To Pitch" for F0 extraction. Adjust according to speaker(s) specificities to minimize octave jumps.
+timeStepFormantsDetection	0	Num	Numeric (seconds). Time step used in F0 detection. Set to 0 for automatic time step.
+timeStepIntensityExtraction	0	Num	Numeric (seconds). Time step used for intensity extraction. Set to 0 for automatic time step.
+subtractMeanFromIntensityValues	no	Txt	Possible values: yes or no. Indicates wether intensity values should be normalized by subtracting mean value in each processed interval. Used by function "To Intensity".
+maxFrequencyForFormantsDetection	5000	Num	Numeric (Hertz). Maximum frequency of the highest detected formant. Typical values for 5 formants (parameter nDetectedFormants): 5000 Hz for male speakers, 5500 Hz for female speakers.
+nDetectedFormants	5	Num	Positive, minimum value = 4. Number of expected formants used in function "To Formant" for formant values extraction. May be set to a decimal value, e.g. 5.5 formants.
+windowLengthFormantsDetectionSeconds	0.025	Num	Numeric (seconds). Window duration used in formants tracking (function "To Formant").
+preEmphasisFormantsDetectionHertz	50	Num	Numeric (Hertz). Pre-emphasis value used in function "To Formant".
+windowShapeForCenterOfGravityComputation	Hamming	Txt	Possible values: rectangular, triangular, parabolic, Hanning, Hamming, Gaussian1, Gaussian2, Gaussian3, Gaussian4, Gaussian5, Kaiser1, Kaiser2. Window shape used for the extraction of sound slices prior to CoG computation (function "Extract part").
+relativeWidthForCenterOfGravityComputation	1	Num	Positive number, default value: 1. Relative window width used for the extraction of sound slices prior to CoG computation (function "Extract part").
+useFFTinCenterOfGravityComputation	yes	Txt	Possible values: yes or no. If set to "yes", the fast version of the Fourier transform will be used in function "To Spectrum" when extracting center of gravity.
+powerValueInCenterOfGravityComputation	2	Num	Positive integer, default 2. Power value used in function "Get centre of gravity".
+extractsDurationForCoGcomputationMilliseconds	10	Num	Numeric (milliseconds). Window duration for the computation of spectral center of gravity (CoG).
+timestepForCoGcomputationMilliseconds	5	Num	Numeric (milliseconds). Timestep of the sliding window used for the computation of spectral center of gravity (CoG) variability and min/max measures.
+includeRaisingPartsInZeroCrossingRateComputation	yes	Txt	Possible values: yes or no. Default value: "yes". If set to "yes", raising parts of the acoustic signal will be considered as zero-crossings in function "To PointProcess (zeroes)".
+includeFallingPartsInZeroCrossingRateComputation	no	Txt	Possible values: yes or no. Default value: "no". If set to "yes", falling parts of the acoustic signal will be considered as zero-crossings in function "To PointProcess (zeroes)".
+extractsDurationForZCRcomputationMilliseconds	10	Num	Numeric (milliseconds). Window duration for the computation of Zero Crossing Rate (ZCR).
+timestepForZCRcomputationMilliseconds	5	Num	Numeric (milliseconds). Timestep of the sliding window used for the computation of Zero Crossing Rate (ZCR) variability and min/max measures.
+timeStepHNRextraction	0.01	Num	Numeric (seconds). Default: 0.01. Time step used for HNR extraction (function "To Harmonicity (cc)").
+silenceTresholdHNRextraction	0.1	Num	Numeric. Default: 0.1. Silence treshold used for HNR extraction (function "To Harmonicity (cc)"). Set to 0 for automatic time step.
+periodsPerWindowHNRextraction	1	Num	Numeric. Default: 1. Number of periods per window used for HNR extraction (function "To Harmonicity (cc)"). Set to 0 for automatic time step.
+interpolationMethodUsedInHNRextraction	Cubic	Txt	Possible values: Nearest, Linear, Cubic, Sinc70, Sinc700. Default: "Cubic". Interpolation method used to get the HNR value at a specific time point.
